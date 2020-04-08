@@ -35,8 +35,8 @@ deleteTodo(todo:Todo):Observable<Todo>{
 //AddTodo
 addTodo(todo:Todo):Observable<Todo>{
  return this.http.post<Todo>(this.todoUrl,todo,httpOptions);
+ 
 }
-
 
   //Toggle Completed
   toggleCompleted(todo:Todo):Observable<any>{

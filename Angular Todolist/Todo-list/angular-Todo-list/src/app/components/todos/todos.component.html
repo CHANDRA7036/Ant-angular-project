@@ -1,22 +1,18 @@
 <app-add-todo (addTodo)="addTodo($event)"></app-add-todo>
-<app-todo-item *ngFor="let todo of todos" [todo]="todo" (deleteTodo)="deleteTodo($event)"></app-todo-item> 
+<!-- <app-todo-item *ngFor="let todo of todos" [todo]="todo" (deleteTodo)="deleteTodo($event)"></app-todo-item>  -->
 
-<nz-table #basicTable [nzData]="Todolist">
+<nz-table>
   <thead>
-    <tr>
-      <th>Name</th>
-      
-    </tr>
+    
   </thead>
   <tbody>
-    <tr *ngFor="let todo of todos">
-      <td>{{Todo.title}}</td>
-     
-      <td>
-        <a>Action 一 {{data.name}}</a>
+    <tr app-todo-item *ngFor="let todo of todos" class="editable-row" app-todo-item>
+      <td>{{todo.title}} </td> 
+      <td>       
         <nz-divider nzType="vertical"></nz-divider>
-        <a>Delete</a>
-      </td>
+        <!-- <button (click)="onDelete(todo)" nz-button nzType="primary">Delete</button> -->
+        <button (deleteTodo)="deleteTodo($event)"  nz-button nzType="primary">Delete</button>
+      </td>  
     </tr>
   </tbody>
 </nz-table>
